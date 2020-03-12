@@ -1,0 +1,19 @@
+spring:
+  cloud: 
+    config: 
+      fail-fast: true 
+      uri: https://copadtes.camara.gov.br/copad-servidor-config
+      username: sivis2-backend
+      password: 12345678
+    
+keycloak:
+  realm: gabinetedigital
+  auth-server-url: https://auth-tes.camara.gov.br/auth
+  resource: sivis2-frontend
+  bearer-only: true
+  credentials:
+    secret: dc3a9367-ab7c-45a1-af01-c21bb2caeb83
+    
+config:
+  keycloak:
+    url-refresh-token: https://auth-tes.camara.gov.br/auth/realms/gabinetedigital/protocol/openid-connect/token

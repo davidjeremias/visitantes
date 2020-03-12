@@ -1,0 +1,8 @@
+{
+  "realm": "gabinetedigital",
+  "auth-server-url" : "https://auth-tes.camara.gov.br/auth",
+  "resource" : "sivis2-frontend",
+  "credentials": {
+    "secret": "dc3a9367-ab7c-45a1-af01-c21bb2caeb83"
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "SIVIS2",
+    "description": "Sistema Identificação de Visitação em Vue-JS + PIC",
+    "version": "0.0.75-SNAPSHOT",
+    "dataUpdate": "12/03/2020",
+    "hourUpdate": "10:49",
+    "author": "Fábrica - GlobalWeb",
+    "main": "src/main.js",
+    "private": true,
+    "scripts": {
+        "start": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "keycloak-js": "^7.0.0",
+        "moment": "^2.24.0",
+        "vue": "^2.5.17",
+        "vue-head": "^2.1.2",
+        "vue-loader": "^15.8.3",
+        "vue-router": "^3.0.2",
+        "vue-session": "^1.0.0",
+        "vue-spinner": "^1.0.3",
+        "vue-the-mask": "^0.11.1",
+        "vuex": "^3.1.1"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.2.0",
+        "@vue/cli-service": "^3.2.0",
+        "vue-template-compiler": "^2.5.17"
+    },
+    "files": [
+        "src/*"
+    ]
+}

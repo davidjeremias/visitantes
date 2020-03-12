@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all">Template for HTML email with inline image</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div id="pagina" th:style="'width:503px;margin: 0.3em auto'">
+    
+      <div id="top_menu" th:style="'height: 110px;margin-top:0px;display:block;'">
+        <img src="cid:header.png"/>
+      </div>
+      
+      <div id="corpoMsg" th:style="'display:block'">
+	      <p>Olá <b><span th:text="${convidado}"></span></b></p>
+	      <p>O seu agendamento está <b><font color="green">CONFIRMADO</font></b>.</p>
+	      <p>O(a) <b>Dep. <span th:text="${deputado}"></span></b> terá a honra de recebê-la(o) na Câmara dos Deputados.</p>
+	      <p>No local <br />
+	      <b><span th:text="${local}"></span></b></p>
+	      <p>Na data <br />
+	      <b><span th:text="${data}"></span></b></p>
+	      <p>No período <br />
+	      <b><span th:text="${periodo}"></span></b></p>
+	      <p>Para participar de(a): <br />
+<!-- 	      <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu velit velit. Cras consequat enim sed gravida lacinia.</b> -->
+	      </p>
+	      
+	      <div id="box" th:style="'margin: 1rem 5rem;width:300px;height:330px;background-color:#fff;border:1px solid #d3d3d3;text-align: center;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;margin-left: 20%'">
+	       <p>Utilize o QRCode para agilizar a sua entrada na Câmara dos Deputados:</p>
+	       <img th:src="@{${qrCode}}"/>
+	      </div>
+	
+	      <p><i><font size="2">* Gerado automaticamente pelo sistema SIVIS - Sistema de Identificação de Visitantes da Câmara dos Deputados.</font></i></p>
+      </div>
+      
+      <div id="footer" th:style="'height: 90px;margin-top:0px;display:block;'">
+        <img src="cid:footer.png"/>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,507 @@
+button {
+    font-weight: bold !important;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.margin-top-row {
+    margin-top: 3rem;
+}
+
+.margin-bottom-row {
+    margin-bottom: 6rem;
+}
+
+.float-left {
+    float: left;
+}
+
+.alert-avatar {
+    background-color: rgba(194, 34, 34, 0.9);
+    color: #fff;
+    width: 22rem;
+    position: absolute;
+    top: 16rem;
+    float: left;
+}
+
+.alert-avatar-title {
+    font-weight: bold;
+    font-size: 1.9rem;
+}
+
+.alert-avatar-subtitle {
+    margin-top: -0.5rem;
+    font-size: 1.3rem;
+}
+
+.sivis-checkbox-title {
+    margin-top: 1.7rem;
+    margin-left: 4rem;
+}
+
+.page-container-sivis {
+    margin-top: 5rem;
+}
+
+.button-busca-sivis {
+    margin-top: 3rem;
+    margin-left: 1rem;
+}
+
+.button-busca-margin {
+    margin-left: 1rem;
+}
+
+.button-margin-top {
+    margin-top: 1rem;
+}
+
+.button-margin-left {
+    margin-left: 2rem;
+}
+
+.entry-container {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    margin-bottom: 10.5rem;
+}
+
+.photo-avatar-container {
+    cursor: pointer;
+}
+
+.photo-avatar-container:hover .alert-avatar {
+    background-color: rgba(173, 21, 21, 0.9);
+}
+
+.photo-avatar {
+    float: left;
+}
+
+.photo-webcam-final {
+    border: solid 2px rgb(185, 185, 185);
+    width: 45rem;
+    height: 30rem;
+}
+
+.document-webcam-final {
+    border: solid 1px rgb(185, 185, 185);
+    width: 40rem;
+    height: 25rem;
+}
+
+.document-webcam-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(92, 92, 92);
+}
+
+.document-webcam-container {
+    margin-bottom: 1rem;
+}
+
+.document-fields-container {
+    border-radius: 1rem;
+    background-color: rgb(248, 248, 248);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#agent-message {
+    width: 61%;
+    margin-left: 14px;
+    margin-top: 5px;
+    padding: 7px;
+    border-radius: 0.4rem;
+    color: #721c24;
+    font-weight: bold;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+}
+
+#visitanteRestricao {
+    width: 61%;
+    margin-left: 14px;
+    margin-top: 10px;
+    padding: 7px;
+    border-radius: 0.4rem;
+    color: #721c24;
+    font-weight: bold;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    
+}
+#visitanteHomonimo{
+    margin-left: 1px;
+    margin-top: 1px;
+    padding: 1px;
+    border-radius: 0.4rem;
+    color: crimson;
+    font-weight: bold;
+    
+  
+}
+
+#authorize-entry {
+    display: none;
+}
+
+.btn-captch {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.7rem;
+    width: 12rem;
+    height: 4rem;
+}
+
+#video {
+    background-color: #000000;
+}
+
+#canvas {
+    display: none;
+}
+
+#videoDocumentoFrente {
+    width: 34.65rem;
+    height: 26rem;
+    background-color: #000000;
+}
+
+#canvasDocumentoFrente {
+    display: none;
+}
+
+#videoDocumentoVerso {
+    width: 34.65rem;
+    height: 26rem;
+    background-color: #000000;
+}
+
+#canvasDocumentoVerso {
+    display: none;
+}
+
+#documentoVersoContainer {
+    display: none;
+}
+
+.sivis-carousel {
+    height: 28rem;
+}
+
+.requiredLabel {
+    color: rgb(226, 1, 1);
+    font-weight: bold;
+}
+
+.tipoDocumentoCarousel {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.tipoDocumentoCarouselContainer {
+    margin-bottom: 1rem;
+}
+
+.validacao {
+    font-weight: bold;
+    color: crimson;
+}
+
+.borderRadiusCarousel {
+    border-right: 1px solid #ffffff;
+}
+
+.title-visitant {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle-visitant {
+    font-weight: bold;
+}
+
+.subtitle-visitant-item {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    font-weight: bold;
+}
+
+.button-router a {
+    color: #325A2A;
+}
+
+.button-busca-sivis-home {
+    margin-left: 1rem;
+}
+
+.avatar-sivis {
+    cursor: pointer;
+    width: 15rem;
+    max-height: 12rem;
+}
+
+.subtitle-principal {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.avatar-modal-sivis {
+    width: 50rem;
+    height: 36rem;
+}
+
+.tableContainerSearch {
+    margin-bottom: 3rem;
+}
+
+.button-router a {
+    color: #325A2A;
+}
+
+.dateSivis {
+    font-size: 2rem;
+}
+
+
+.photo-webcam {
+    object-fit: cover;
+    width: 22rem;
+    height: 20rem;
+    border-radius: 0.3rem;
+    border: solid 1px rgb(232, 232, 232)
+}
+
+.input-large {
+    height: 5rem !important;
+    font-size: 2.5rem !important;
+    font-weight: bold;
+}
+
+.buttonWithIcon {
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+
+.btnCreateMarginTop {
+    margin-top: 3rem;
+}
+
+.containerLeft {
+    background-color: #E4E4E4;
+    height: 100%;
+}
+
+.leftTitle h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.labelLeft {
+    font-weight: bold;
+}
+
+.searchContainer {
+    margin-top: 2rem;
+}
+
+table {
+    background-color: #ffffff;
+}
+
+.tableContainer {
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nameLeft {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.containerLeft {
+    background-color: #E4E4E4;
+    height: 100%;
+}
+
+.leftTitle h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.labelLeft {
+    font-weight: bold;
+}
+
+.searchContainer {
+    margin-top: 2rem;
+}
+
+table {
+    background-color: #ffffff;
+}
+
+.tableContainer {
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nameLeft {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.btnSearch {
+    margin-top: 2.5rem;
+}
+
+.panel {
+    margin-top: 3rem;
+}
+
+.panel-heading h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.textButton {
+    /* margin-left: 1rem; */
+    font-weight: bold;
+}
+
+.marginContainerBottom {
+    margin-bottom: 8rem;
+}
+
+.avatarNovoConvidado {
+    max-width: 14rem;
+}
+
+.inputFileAvatar {
+    display: none !important;
+}
+
+.mensagemValidacao {
+    font-weight: bold;
+    color: red;
+    margin-top: -1rem;
+}
+
+.spanObrigatorio {
+    color: red;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.main-info-container {
+    background-color: rgb(240, 240, 240);
+    padding: 1rem 0 1rem 0;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+
+.infoMensagens {
+    font-size: 1.8rem;
+}
+
+.form-check-label {
+    margin-left: 1rem;
+}
+
+.espacamentoPageFinal {
+    height: 100px;
+}
+
+.molduraFotoDocumento {
+    background-image: url('../images/avatar_sem_foto.jpeg');
+    border: solid 1px rgb(185, 185, 185);
+    width: 406px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imagemDocumento {
+    border: solid 1px rgb(185, 185, 185);
+    width: 406px;
+    height: 250px;
+}
+
+.molduraFotoConvidado {
+    /* background-image: url('../images/avatar_sem_foto.jpeg');  */
+    border: solid 1px rgb(185, 185, 185);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.imagemFotoConvidado {
+    background-image: url('../images/avatar_sem_foto.jpeg');
+    border: solid 1px rgb(185, 185, 185);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.imagemFotoConvidadoDetalharAgendamento {
+    border: solid 1px rgb(185, 185, 185);
+    width: 212px;
+    height: 151px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.imagemHeaderEmail {
+    height: 120px;
+    margin-top: -20px;
+    background-image: url('../images/header.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.imagemFooterEmail {
+    border: solid 1px rgb(185, 185, 185);
+    height: 43px;
+    margin: 0.3em auto;
+    background-image: url('../images/footer.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.imagemFotoConvidadoDetalharAgendamento {
+    border: solid 1px rgb(185, 185, 185);
+    width: 212px;
+    height: 151px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

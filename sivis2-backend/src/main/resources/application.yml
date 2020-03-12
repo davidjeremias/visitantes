@@ -1,0 +1,35 @@
+server:
+  port: 9080
+  servlet:
+    context-path: /sivis2-backend
+    
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2008Dialect
+    show-sql: true
+    open-in-view: true
+
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    
+  profiles:
+    active: @activatedProperties@
+    
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: false
+      
+  servlet:
+    multipart:
+      enabled: true
+#      file-size-threshold: 2KB
+#      max-file-size: 200MB
+
+  urlIntegraIdeaHom: http://sesenhom2.camara.gov.br/integraIDEAN
+  tokenSivisHom: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQXzYzOTEiLCJhdWQiOiJTSVZJUyIsImlzcyI6IklOVEVHUkFfSURFQSIsImVudiI6ImhvbSIsImV4cCI6NDcyOTA2MzU0NCwiaWF0IjoxNTc1NDYzNTQ0MzM0fQ.qIFNx1bC2b0f9XV83F9AFJ_mTDRauEBJkUfgu0xPZkQFiC8cvylb94bjiwsaRK0xht6CypxhGjcZryR89tNBig
+  
+  urlLotacao: http://prod1.camara.gov.br/folhacd-ws/rest/servidores/
+  urlGabinete: http://seleg.camara.gov.br/ParlamentarWebService/rest/deputados?legislatura=56&ordem=ASC&ordenarPor=nome
+        

@@ -1,0 +1,113 @@
+#!/usr/bin/env groovy
+pipeline {
+    agent any
+    environment {
+        IMAGEM_DOCKER = 'dockerhub.camara.gov.br/copad/sivis2-frontend'
+        APROVADORES = 'P_991310'
+        EMAIL_SECAO = 'jairo.rodrigues@camara.leg.br'
+        URL_RANCHER = 'https://rancher.camara.gov.br/v2-beta'
+        URL_JENKINS = 'https://jenkins2.camara.gov.br/view/COPAD/job/sivis2-frontend'
+        VERSAO_NODE_JS = 'NodeJS8'
+        CONFIG_NODE_JS = '211e3b36-ac91-4e95-8e0a-ccc8c6e847c7'
+    }
+    stages {
+        stage('Git checkout') {
+            steps {
+                checkout scm
+                    script {
+                        def versions = readJSON file: 'package.json'
+                        def tag = versions.version
+                        TAG = "${tag}"
+                        DEPLOY_EM_PRODUCAO = false
+                    }
+            }
+        }
+        stage('Instala as dependencias do projeto') {
+            steps {
+                sh "npm config set registry https://hub.camara.gov.br/repository/npm-camara/ && npm install"
+            }
+        }
+
+        stage('Imagem Docker') {
+            steps {
+
+                withDockerRegistry([credentialsId: 'c34117dc-5fa1-46f8-8ebb-f1cf0b2254c4', url: 'https://dockerhub.camara.gov.br/']) {
+                    script {
+                        imagem = docker.build("${env.IMAGEM_DOCKER}:${TAG}", ".")
+                        imagem.push()
+                    }
+                }
+            }
+        }
+        stage('Deploy Rancher Test') {
+            environment {
+                NOME_SERVICO_TES = 'sivis-tes/sivis2'
+                NOME_SERVICO = 'sivis/sivis2'
+            }
+            steps {
+                script {
+                    if (TAG.endsWith('SNAPSHOT')) {
+                        deploy_rancher("cattle", "hmg", "", "${env.IMAGEM_DOCKER}:${TAG}", "${env.NOME_SERVICO_TES}", "${TAG}", "", "")
+
+                        DEPLOY_EM_DEV = true
+                        DEPLOY_APROVACAO_PROD = false
+                    } else if (TAG.endsWith('HMG')){
+                        deploy_rancher("cattle", "hmg", "", "${env.IMAGEM_DOCKER}:${TAG}", "${env.NOME_SERVICO}", "${TAG}", "", "")
+
+                        DEPLOY_EM_DEV = false
+                        DEPLOY_APROVACAO_PROD = false
+                    } else {
+                        echo "Deploy environment PRODUÇÃO"
+
+                        DEPLOY_EM_DEV = false
+                        DEPLOY_APROVACAO_PROD = true
+                    }
+                }
+            }
+        }
+
+        stage('Promover para Produção?') {
+            agent none
+            when {
+                expression {
+                    return DEPLOY_APROVACAO_PROD
+                }
+            }
+            steps {
+                timeout(10) {
+                    mail to: "${env.EMAIL_SECAO}",
+                    subject: "Aprovação de Deploy em Produção - Job ${env.JOB_NAME}-${env.BUILD_DISPLAY_NAME}",
+                    body: """Deploy em produção aguardando aprovação do módulo '${JOB_NAME}' Build (${BUILD_NUMBER}) \nPainel -->  ${env.URL_JENKINS} \nAprovação Direta --> ${JENKINS_URL}job/${JOB_NAME}/${BUILD_NUMBER}/input \nMudanças da Versão --> ${currentBuild.absoluteUrl}\nMensagem da Tag -->\n ${TAG}"""
+                    script {
+                        aprovador = input message: 'ATENÇÃO! Deseja fazer o deploy em produção?', ok: 'Sim',
+                        submitter: "${env.APROVADORES}", submitterParameter: 'aprovador'
+                        echo "Deploy em produção aprovado por ${aprovador}"
+                        DEPLOY_EM_PRODUCAO = true
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Rancher Produção') {
+            when {
+                expression {
+                    return DEPLOY_EM_PRODUCAO
+                }
+            }
+            environment {
+                SERVICO_PRODUCAO = 'sivis/sivis2'
+            }
+            steps{
+                deploy_rancher("cattle", "prod", "", "${env.IMAGEM_DOCKER}:${TAG}", "${env.SERVICO_PRODUCAO}", "${TAG}", "", "${aprovador}")
+
+                mail to: "${env.EMAIL_SECAO},sesap.cenin@camara.leg.br",
+                    subject: "Deploy em produção rancher - Job ${env.JOB_NAME}-${env.BUILD_DISPLAY_NAME}",
+                    body: """
+                        Foi feito deploy em produção da imagem ${env.IMAGEM_DOCKER}:${TAG} no serviço ${env.SERVICO_PRODUCAO}.
+                        Deploy aprovado por ${aprovador}
+                        Url do job: ${currentBuild.absoluteUrl}"""
+            }
+        }
+
+    }
+}
